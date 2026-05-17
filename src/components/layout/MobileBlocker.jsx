@@ -25,25 +25,25 @@ export default function MobileBlocker({ children }) {
   if (isMobile) {
     return (
       <div className="relative flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-brand-900 via-brand-800 to-brand-950 px-6 text-center text-white">
-        <motion.div
+        <div
           className="pointer-events-none absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `radial-gradient(circle at 20% 50%, white 1px, transparent 1px)`,
+            backgroundImage: "radial-gradient(circle at 20% 50%, white 1px, transparent 1px)",
             backgroundSize: "32px 32px",
           }}
         />
-        <motion.div className="relative max-w-sm">
+        <div className="relative max-w-sm">
           <img src="/logo.png" alt="SEPL" className="mx-auto h-16 w-auto object-contain" />
           <div className="mx-auto mt-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10">
             <Monitor className="h-7 w-7" />
-          </motion.div>
+          </div>
           <h1 className="mt-6 font-display text-2xl font-bold">Website in progress</h1>
           <p className="mt-3 text-base leading-relaxed text-brand-100">
-            We&apos;re still building the mobile experience. Please visit us on a desktop or laptop for the full site.
+            Please visit us on a desktop or laptop. Our mobile site is coming soon.
           </p>
           <p className="mt-6 text-sm text-brand-200">Loading Arms Pvt. Ltd. · Steelfab Engineering</p>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     );
   }
 
