@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --nav-height: 5.25rem;
+
+  --bg-base: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-muted: #e8eef4;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --accent: #0369a1;
+  --accent-hover: #075985;
+  --accent-soft: #e0f2fe;
+  --accent-ring: rgba(3, 105, 161, 0.2);
+
+  --border: #dbe3ec;
+  --shadow-soft: 0 4px 24px rgba(15, 23, 42, 0.06);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[var(--bg-base)] font-sans text-[var(--text-primary)] antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+    font-style: normal;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+    font-style: normal;
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+    color: var(--text-primary);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.hero-model-wrap {
+  overflow: visible;
+}
+
+.hero-model-stage {
+  padding: clamp(8px, 1.5vh, 18px);
+}
+
+.hero-model-viewer {
+  width: 100%;
+  height: 100%;
+  min-height: min(60vh, 580px);
+  --poster-color: transparent;
+  background: transparent;
+  overflow: visible;
+}
+
+.hero-model-poster {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, #e0f2fe 0%, transparent 65%);
+  animation: model-poster-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes model-poster-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
