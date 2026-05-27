@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Download as DownloadIcon, FileText } from "lucide-react";
 import PageHero from "../components/layout/PageHero";
 import { downloads } from "../constants/sitePages";

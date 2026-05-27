@@ -68,7 +68,10 @@ function NavDropdown({ label, children, href }) {
                     to={item.href}
                     className={cn(
                       "block rounded-full px-4 py-2.5 text-[14px] font-medium transition-colors",
-                      location.pathname === item.href
+                      `${location.pathname}${location.hash}` === item.href ||
+                      (item.href.startsWith("/products#") &&
+                        location.pathname === "/products" &&
+                        location.hash === item.href.replace("/products", ""))
                         ? "bg-brand-50 text-brand-800"
                         : "text-[var(--text-secondary)] hover:bg-slate-50 hover:text-brand-800"
                     )}

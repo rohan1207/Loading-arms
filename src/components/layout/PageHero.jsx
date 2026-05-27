@@ -1,21 +1,34 @@
 import { motion } from "framer-motion";
+import OptimizedImage from "../ui/OptimizedImage";
 
-export default function PageHero({ badge, title, description }) {
+export default function PageHero({ badge, title, description, image }) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-brand-900 via-brand-800 to-brand-950 pb-20 pt-[calc(var(--nav-height)+2rem)] text-white md:pb-28">
-      <motion.div
-        className="pointer-events-none absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `radial-gradient(circle at 20% 50%, white 1px, transparent 1px)`,
-          backgroundSize: "32px 32px",
-        }}
-      />
+      {image ? (
+        <>
+          <OptimizedImage
+            src={image}
+            alt=""
+            className="absolute inset-0 h-full w-full"
+            imgClassName="opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-950/95 via-brand-900/85 to-brand-900/70" />
+        </>
+      ) : (
+        <div
+          className="pointer-events-none absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: "radial-gradient(circle at 20% 50%, white 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+      )}
       <div className="relative mx-auto max-w-[1400px] px-5 text-center md:px-8 lg:px-10">
         {badge ? (
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm"
           >
             {badge}
           </motion.span>
